@@ -70,3 +70,10 @@ const miguel = new Student2({
 //     28,
 //     ["Curso de Analisis de Negocios para Ciencia de Datos", "Curso de Principios de visualización de Datos para BI"]
 // );
+
+class Student3 {
+  constructor({
+    name,
+    lastname,
+  })
+}
