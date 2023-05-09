@@ -26,33 +26,33 @@ Student.prototype.aprobarCurso = function (nuevoCurso) {
 };
 
 const juanita = new Student(
-    "Juanita Alejandra",
-    15,
-    ["Curso de Introducción a los Videojuegos", "Curso de Creación de Personajes"],
+  "Juanita Alejandra",
+  15,
+  ["Curso de Introducción a los Videojuegos", "Curso de Creación de Personajes"],
 );
 
 // Prototpos con la sintaxis de clases
 class Student2 {
-    constructor({
-        name,
-        age,
-        email,
-        cursosAprobados = []
-    }) {
-        this.name = name;
-        this .age = age;
-        this.email = email;
-        this.cursosAprobados = cursosAprobados;
-    }
-    aprobarCurso(nuevoCurso) {
-        this.cursosAprobados.push(nuevoCurso);
-    }
+  constructor({
+    name,
+    age,
+    email,
+    cursosAprobados = []
+  }) {
+    this.name = name;
+    this.age = age;
+    this.email = email;
+    this.cursosAprobados = cursosAprobados;
+  }
+  aprobarCurso(nuevoCurso) {
+    this.cursosAprobados.push(nuevoCurso);
+  }
 }
 
 const miguel = new Student2({
-    name: "Miguel",
-    age:28,
-    email: "dfqz93@hotmail.com",
+  name: "Miguel",
+  age: 28,
+  email: "dfqz93@hotmail.com",
 });
 // class Student2 {
 //     constructor(name, age, cursosAprobados) {
@@ -77,3 +77,69 @@ class Student3 {
     lastname,
   })
 }
+
+const diego1 = {
+  nombre: 'Diego',
+  username: 'diego0096',
+  points: 100,
+  socialMedia: {
+    twitter: 'diego0096',
+    instagram: 'diego0096',
+    facebook: undefined,
+  },
+  approvedCourses: [
+    'Curso Definitivo de HTML y CSS',
+    'Curso Practico de HTML y CSS'
+  ],
+  learningPaths: [
+    {
+      name: 'Escuela de Desarrollo Web',
+      courses: [
+        'Curso Definitivo de HTML y CSS',
+        'Curso Practico de HTML y CSS',
+        'Curso de Responsive Design',
+      ]
+    },
+    {
+      name: 'Escuela de Videojuegos',
+      courses: [
+        'Curso de Introducción a la Programación de Vgs',
+        'Curso de Unreal Engine',
+        'Curso de Unity 3D',
+      ],
+    },
+  ],
+};
+
+const felipe1 = {
+  nombre: 'Felipe',
+  username: 'felipe0096',
+  points: 100,
+  socialMedia: {
+    twitter: 'felipe0096',
+    instagram: 'felipe0096',
+    facebook: undefined,
+  },
+  approvedCourses: [
+    'Curso DataBussiness',
+    'Curso de DataViz',
+  ],
+  learningPaths: [
+    {
+      name: 'Escuela de Desarrollo Web',
+      courses: [
+        'Curso Definitivo de HTML y CSS',
+        'Curso Practico de HTML y CSS',
+        'Curso de Responsive Design',
+      ]
+    },
+    {
+      name: 'Escuela de Data Science',
+      courses: [
+        'Curso DataBussiness',
+        'Curso de DataViz',
+        'Curso de Tableau',
+      ],
+    },
+  ],
+};
