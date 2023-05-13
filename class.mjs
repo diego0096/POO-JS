@@ -1,5 +1,5 @@
 function videoPlay(id) {
-    const urlSecreta = "https//platzisecreto.cpm" + id;
+    const urlSecreta = "https//platzisecreto.com" + id;
     console.log('Se esta produciendo desde la url ' + urlSecreta);
 };
 function videoStop(id) {
@@ -49,19 +49,43 @@ class Student {
     }
 }
 
-const diego2 = new Student({
-    name: "Diego",
-    username: "diego0096",
-    email: "dfqz93@hotmail.com",
-    twitter: "diego0096",
-});
+/* class FreeStudent extends Student{
+    constructor(props) {
+        super(props);
+    }
 
-const felipe2 = new Student({
-    name: "Felipe",
-    username: "felipe0096",
-    email: "dfqz06@hotmail.com",
-    twitter: "felipe0096",
-});
+    approveCourse(newCourse) {
+        if(newCourse.isFree) {
+            this.approveCourse.push(newCourse)
+        } else {
+            console.warn('Lo sentimos, ' + this.name + 'solo puedes tomar cursos abiertos')
+        }
+    }
+}
+
+class BasicStudent extends Student{
+    constructor(props) {
+        super(props);
+    }
+
+    approveCourse(newCourse) {
+        if(newCourse.language !== 'English') {
+            this.approveCourse.push(newCourse);
+        } else {
+            console.warn('Lo sentimos, ' + this.name + 'no puedes tomar cursos en ingles')
+        }
+    }
+}
+
+class ExpertStudent extends Student{
+    constructor(props) {
+        super(props);
+    }
+
+    approveCourse(newCourse) {
+        this.approveCourse.push(newCourse);
+    }
+} */
 
 class LearnigPaths {
     constructor({
@@ -77,9 +101,13 @@ class Course {
     constructor({
         name,
         classes = [],
+        isFree = false,
+        language = 'Spanish'
     }) {
         this._name = name;
         this.classes = classes;
+        this.isFree = isFree;
+        this.language = language;
     }
 
     get name() {
@@ -97,6 +125,7 @@ class Course {
 
 const cursoProgBasica = new Course({
     name: 'Curso de Programación Basica',
+    isFree: true,
 });
 
 // cursoProgBasica.name
@@ -108,6 +137,7 @@ const cursoDefinitivoHTML = new Course({
 
 const cursoPracticpHTML = new Course({
     name: 'Curso Practico de HTML y CSS',
+    language: 'English',
 });
 
 const escuelaWeb = new LearnigPaths({
@@ -126,7 +156,7 @@ const escuelaData = new LearnigPaths({
         'Curso Data Bussiness',
         'Curso DataViz',
     ],
-})
+});
 
 const escuelaVgs = new LearnigPaths({
     name: 'Escuela de Videojuegos',
@@ -135,4 +165,18 @@ const escuelaVgs = new LearnigPaths({
         'Curso Unity',
         'Curso Unreal Engine',
     ],
+});
+
+const diego = new FreeStudent({
+    name: "Diego",
+    username: "diego0096",
+    email: "dfqz93@hotmail.com",
+    twitter: "diego0096",
+});
+
+const felipe = new BasicStudent({
+    name: "Felipe",
+    username: "felipe0096",
+    email: "dfqz06@hotmail.com",
+    twitter: "felipe0096",
 });
