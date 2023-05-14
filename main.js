@@ -74,7 +74,7 @@ const miguel = new Student2({
 class Student3 {
   constructor({
     name,
-    lastname,
+    lastname
   })
 }
 
