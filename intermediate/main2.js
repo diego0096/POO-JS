@@ -12,7 +12,7 @@ const obj1 = {
 };
 
 const obj2 = {};
-for(prop in obj1) {
+for (prop in obj1) {
     obj2[prop] = obj1[prop];
 };
 
@@ -30,7 +30,7 @@ for(let i = 0; i < numeros.length; i++) {
 } */
 
 function recursiva(numbersArray) {
-    if(numbersArray.length != 0) {
+    if (numbersArray.length != 0) {
         const firstNum = numbersArray[0];
         console.log(firstNum);
         numbersArray.shift();
@@ -59,10 +59,10 @@ function deepCopy(subject) {
         return subject;
     }
 
-    for(key in subject) {
+    for (key in subject) {
         const keyIsObject = isObject(subject[key]);
 
-        if(keyIsObject) {
+        if (keyIsObject) {
             copySubject[key] = deepCopy(subject[key]);
         } else {
             if (subjectIsArray) {
@@ -74,3 +74,96 @@ function deepCopy(subject) {
     }
     return copySubject;
 }
+
+const studentBase = {
+    name: undefined,
+    email: undefined,
+    age: undefined,
+    approvedCourses: undefined,
+    learningPaths: undefined,
+    socialMedia: {
+        twitter: undefined,
+        instagram: undefined,
+        facebook: undefined,
+    },
+};
+
+const diego = deepCopy(studentBase);
+Object.seal(diego);
+diego.name = "Diego";
+Object.isSealed(diego);
+Object.isFrozen(diego);
+/* Object.defineProperty(diego, "name", {
+    value: "Diego",
+    configurable:false,
+}); */
+
+function requiredParam(param) {
+    throw new Error(param + " es obligatorio");
+}
+
+function createStudent({
+    name = requiredParam("name"),
+    age,
+    email = requiredParam("email"),
+    twitter,
+    instagram,
+    facebook,
+    approvedCourses = [],
+    learningPaths = [],
+} = {}) {
+    const private = {
+        "_name": name,
+    };
+    const public = {
+        email,
+        age,
+        approvedCourses,
+        learningPaths,
+        socialMedia: {
+            twitter,
+            instagram,
+            facebook,
+        },
+        readName() {
+            return private["_name"];
+        },
+        changeName(newName) {
+            private["_name"] = newName;
+        },
+    };
+
+    Object.defineProperty(public, "readName", {
+        configurable: false,
+    });
+
+    Object.defineProperty(public, "changeName", {
+        configurable: false,
+    });
+    
+    return public;
+
+    //Object returned RORO
+    /* return {
+        name,
+        changeName(newName) {
+            this.name = newName;
+        },
+        email,
+        age,
+        approvedCourses,
+        learningPaths,
+        socialMedia: {
+            twitter,
+            instagram,
+            facebook,
+        },
+    }; */
+};
+
+const juan = createStudent({
+    name: "Juan",
+    email: "dfqz93@hotmail.com",
+    /* age: 18,
+    twitter: "diego0096", */
+});
