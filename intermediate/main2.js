@@ -100,6 +100,43 @@ Object.isFrozen(diego);
 
 function requiredParam(param) {
     throw new Error(param + " es obligatorio");
+};
+
+function createLearningPath({
+    name = requiredParam("name"),
+    courses = [],
+}) {
+    const private = {
+        "_name": name,
+        "_courses": courses,
+    };
+
+    const public = {
+        get name() {
+            return private["_name"]
+        },
+        set name(newName) {
+            if (newName.length != 0) {
+                private["_name"] = newName
+            } else {
+                console.warn("Tu nombre debe tener al menos 1 caracter");
+            }
+            return private["_name"]
+        },
+        get courses() {
+            return private["_courses"]
+        },
+        set courses(newCourses) {
+            if (newCourses.length != 0) {
+                private["_courses"] = newCourses
+            } else {
+                console.warn("Tu nombre debe tener al menos 1 caracter");
+            }
+            return private["_courses"]
+        },
+    };
+
+    return public;
 }
 
 function createStudent({
@@ -114,23 +151,56 @@ function createStudent({
 } = {}) {
     const private = {
         "_name": name,
+        "_learningPaths": learningPaths,
     };
     const public = {
         email,
         age,
         approvedCourses,
-        learningPaths,
         socialMedia: {
             twitter,
             instagram,
             facebook,
         },
-        readName() {
+        get name() {
+            return private["_name"]
+        },
+        set name(newName) {
+            if (newName.length != 0) {
+                private["_name"] = newName
+            } else {
+                console.warn("Tu nombre debe tener al menos 1 caracter");
+            }
+            return private["_name"]
+        },
+
+        get learningPaths() {
+            return private["_learningPaths"]
+        },
+        set learningPaths(newLp) {
+            if(!newLp.name) {
+                console.warn("Tu Lp no tiene nombre");
+                return;
+            };
+
+            if(!newLp.courses) {
+                console.warn("Tu Lp no tiene courses");
+                return;
+            };
+
+            if(!isArray(newLp.courses)) {
+                console.warn("Tu Lp no es una lista (*de cursos)");
+                return;
+            }
+            private["_learningPaths"].push(newLp);
+            
+        },
+        /* readName() {
             return private["_name"];
         },
         changeName(newName) {
             private["_name"] = newName;
-        },
+        }, */
     };
 
     Object.defineProperty(public, "readName", {
