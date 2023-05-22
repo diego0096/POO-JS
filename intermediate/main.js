@@ -46,3 +46,13 @@ Object.seal(diego);
 Object.freeze(diego);
 
 console.log(Object.getOwnPropertyDescriptors(diego));
+
+function deepFreeze(obj) {
+    if(typeof (obj) !== "object") {
+        return Object.freeze(obj);
+    }
+    for (let key in obj) {
+        deepFreeze(obj[key]);
+    }
+    return obj;
+}
