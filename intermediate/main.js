@@ -56,3 +56,27 @@ function deepFreeze(obj) {
     }
     return obj;
 }
+
+const a = JSON.parse('[1, 5, "false"]');
+
+console.log(a);
+
+// JSON.stringify and JSON.parse
+
+const obj1 = {
+    a: 'a',
+    b: 'b',
+    c: {
+        d: 'd',
+        e: 'e'
+    },
+    editA() {
+        this.a = 'Abcd';
+    },
+}
+
+const stringifiedComplexObj = JSON.stringify(obj1);
+console.log(stringifiedComplexObj);
+
+const obj2 = JSON.parse(stringifiedComplexObj);
+console.log(obj2);
