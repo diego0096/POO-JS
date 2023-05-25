@@ -30,7 +30,7 @@ class SpaceStation {
     }
 
     addTeamMember(newMember) {
-        if(newMember instanceof Astronaut) {
+        if (newMember instanceof Astronaut) {
             this.team.push(newMember.name);
         }
     }
@@ -49,10 +49,12 @@ class Satelite {
         to,
         text,
     }) {
-        this.messages.push({
-            from: from.name,
-            to: to.name,
-            text,
-        });
+        if ((from instanceof Astronaut) && (to instanceof SpaceStation) && (to.team.includes(from.name))) {
+            this.messages.push({
+                from: from.name,
+                to: to.name,
+                text,
+            });
+        }
     }
 }
