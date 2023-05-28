@@ -80,3 +80,17 @@ console.log(stringifiedComplexObj);
 
 const obj2 = JSON.parse(stringifiedComplexObj);
 console.log(obj2);
+
+const obj3 = {
+    name: "Diego",
+    lastname: "Quijano",
+    cellphone: 3127814908,
+    email: "dfqz93@hotmail.com",
+    ID: 1061762106
+}
+
+const stringObj3 = JSON.stringify(obj3);
+console.log(stringObj3);
+
+const parseObj3 = JSON.parse(stringObj3);
+console.log(parseObj3);
