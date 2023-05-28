@@ -94,3 +94,18 @@ console.log(stringObj3);
 
 const parseObj3 = JSON.parse(stringObj3);
 console.log(parseObj3);
+
+const keys = Object.keys(obj3);
+console.log(keys);
+
+const entries = Object.entries(obj3);
+console.log(entries);
+
+const value = Object.values(obj3);
+console.log(value);
+
+const properties = Object.getOwnPropertyDescriptor(obj3);
+console.log(properties); 
+
+const prop = Object.getOwnPropertyDescriptors(obj3);
+console.log(prop);
