@@ -109,3 +109,20 @@ console.log(properties);
 
 const prop = Object.getOwnPropertyDescriptors(obj3);
 console.log(prop);
+
+const arr = ["Diego", "Felipe", "Quijano", "Zuñiga"];
+
+const pu = arr.push("Gabriela");
+console.log(pu);
+
+console.log(arr)
+
+const sp = arr.slice("Gabriela");
+console.log(sp);
+
+console.log(arr);
+
+const sl = arr.splice("Gabriela");
+console.log(sl);
+
+console.log(arr);
