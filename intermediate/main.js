@@ -126,3 +126,14 @@ const sl = arr.splice("Gabriela");
 console.log(sl);
 
 console.log(arr);
+
+const arr2 = [1, 2, 3, 4, 5, 6, 7];
+
+const m = arr2.map(element => element * 2);
+
+console.log(m);
+
+const f = arr2.forEach((element, i) => {console.log(element, i)}); 
+
+const fil = arr2.filter(element => element === arr2[2] || element === 4)
+console.log(fil);
