@@ -158,3 +158,16 @@ console.log(inc2);
 
 const inc3 = frutas.includes(typeof String);
 console.log(inc3);
+
+const palindrome = "eye";
+let palin = [...palindrome];
+// console.log(palin);
+for (let i = 0; i < palin.length; i++) {
+    var pal = palin[i];
+    console.log(pal);
+    if(pal === pal - 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
