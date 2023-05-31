@@ -137,3 +137,24 @@ const f = arr2.forEach((element, i) => {console.log(element, i)});
 
 const fil = arr2.filter(element => element === arr2[2] || element === 4)
 console.log(fil);
+
+let x, y, z;
+[x, y] = [10, 20];
+console.log(x);
+console.log(y);
+
+[x, y, ...z] = [10, 20, 30, 40, 50, 60, 70];
+console.log(z);
+
+const frutas = ["Manzana", "naranja", "Banano", "Pera"];
+[, , , per] = frutas;
+console.log(per);
+
+const inc = frutas.includes(String);
+console.log(inc);
+
+const inc2 = frutas.includes("Pera");
+console.log(inc2);
+
+const inc3 = frutas.includes(typeof String);
+console.log(inc3);
